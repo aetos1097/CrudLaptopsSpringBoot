@@ -4,6 +4,7 @@ import com.example.PracticaSpring.Entity.Laptop;
 import com.example.PracticaSpring.Repositories.LaptopRepository;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +27,7 @@ public class LaptopController {
     //CRUD
 
     //Obtener todas las laptops
+    //@PreAuthorize("hasRole('NORMAL')")
     @GetMapping("/laptops")
     public List<Laptop> findAll(){
         return laptopRepository.findAll();
